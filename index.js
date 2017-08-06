@@ -20,7 +20,7 @@ function startServer(options){
     
 
     app.listen(port, function (){
-        var url = "http://localhost:"+post;
+        var url = "http://localhost:"+port;
         console.log("server is running at", url);
         opn(url);
     })
