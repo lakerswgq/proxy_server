@@ -1,6 +1,7 @@
 var path = require("path");
 var express = require("express");
 var httpProxy = require("http-proxy-middleware");
+var opn = require("opn");
 
 var app = express();
 
@@ -16,7 +17,9 @@ function startServer(options){
     app.use(proxySetting);
 
     app.listen(port, function (){
-        console.log("server is running at localhost:", port);
+        var url = "http://localhost:"+post;
+        console.log("server is running at", url);
+        opn(url);
     })
 }
 
