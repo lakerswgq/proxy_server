@@ -12,9 +12,12 @@ function startServer(options){
 
     app.use(express.static(path));
 
-    var proxySetting = httpProxy(proxyOptions);
+    if (Object.keys(proxyOptions).length !== 0){
+        var proxySetting = httpProxy(proxyOptions);
+        app.use(proxySetting);
+    }
 
-    app.use(proxySetting);
+    
 
     app.listen(port, function (){
         var url = "http://localhost:"+post;
